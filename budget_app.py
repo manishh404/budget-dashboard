@@ -7,15 +7,16 @@ st.set_page_config(page_title="Monthly Budget Dashboard", layout="wide")
 st.title("📊 Monthly Budget Dashboard")
 
 # Load Excel
-uploaded_file = st.file_uploader(
-    "Upload Budget Excel File",
-    type=["xlsx"],
-    key="budget_upload"
-)
+# uploaded_file = st.file_uploader(
+ #   "Upload Budget Excel File",
+  #   type=["xlsx"],
+   #  key="budget_upload"
+ #)
 
-if uploaded_file is not None:
+ #if uploaded_file is not None:
 
-    df = pd.read_excel(uploaded_file)
+    # df = pd.read_excel(uploaded_file)''
+df = pd.read_excel("monthly_budget.xlsx")
 
 df["Date"] = pd.to_datetime(df["Date"], dayfirst=True)
 
@@ -50,3 +51,4 @@ fig2 = px.bar(monthly, x="Date", y="Amount",
               title="Monthly Cash Flow")
 
 st.plotly_chart(fig2, use_container_width=True)
+
